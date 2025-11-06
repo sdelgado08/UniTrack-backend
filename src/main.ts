@@ -7,7 +7,7 @@ async function bootstrap() {
   
   // Habilitar CORS para el frontend
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5173'],
+    origin: ['*'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true,
   });
@@ -20,7 +20,7 @@ async function bootstrap() {
   }));
 
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port, '0,0,0,0');
   
   console.log(`🚀 UniTrack Backend está ejecutándose en: http://localhost:${port}`);
   console.log(`📚 API disponible en: http://localhost:${port}/api`);
